@@ -7,11 +7,15 @@ import plotly.express as px
 st.title('Interactive Dashboard')
 st.subheader('Interact with this dashboard using the widgets on the sidebar')
 
-movies_data = pd.read_csv("https://github.com/ChoonsterMail/project_tqhdl/blob/main/movies.csv")
+url = "https://raw.githubusercontent.com/ChoonsterMail/project_tqhdl/main/movies.csv"
+movies_data = pd.read_csv(url)
 movies_data.info()
 movies_data.duplicated()
 movies_data.count()
 movies_data.dropna()
+
+st.write("Thông tin về dữ liệu phim:")
+st.write(movies_data.info())
 
 year_list = movies_data['year'].unique().tolist()
 score_rating = movies_data['score'].unique().tolist()
